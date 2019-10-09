@@ -1,0 +1,54 @@
+﻿<Window x:Class="labo3_interface.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:labo3_interface"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="Gray">
+            <TextBlock FontSize="40" Foreground="White" HorizontalAlignment="Center">P</TextBlock>
+            <TextBlock FontSize="40" Foreground="White" HorizontalAlignment="Center">R</TextBlock>
+            <TextBlock FontSize="40" Foreground="White" HorizontalAlignment="Center">O</TextBlock>
+            <TextBlock FontSize="40" Foreground="White" HorizontalAlignment="Center">D</TextBlock>
+            <TextBlock FontSize="40" Foreground="White" HorizontalAlignment="Center">U</TextBlock>
+            <TextBlock FontSize="40" Foreground="White" HorizontalAlignment="Center">I</TextBlock>
+            <TextBlock FontSize="40" Foreground="White" HorizontalAlignment="Center">T</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                <Label Content="Largeur de l'image :"></Label>
+                <Slider x:Name="largeurImgPage" Minimum="100" Maximum="300" Value="{Binding Produit.LargeurImg}" Margin="50,0,0,0"></Slider>
+                <Label Content="{Binding ElementName=largeurImgPage,Path=Value}" ContentStringFormat=" {0}px"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <Label Content="Hauteur de l'image :"></Label>
+                <Slider x:Name="LongeurImgPage" Minimum="100" Maximum="300" Value="{Binding Produit.LongeurImg}" Margin="45,0,0,0"></Slider>
+                <Label Content="{Binding ElementName=LongeurImgPage,Path=Value}" ContentStringFormat=" {0}px"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <Label Content="Nom du produit : "></Label>
+                <TextBox Text="{Binding Produit.Nom}" Margin="60,0,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <Label Content="Prix du produit :"></Label>
+                <Slider x:Name="valeurPrix" Minimum="0" Maximum="100" Value="{Binding Produit.Prix}" Margin="75,0,0,0"></Slider>
+                <Label Content="{Binding ElementName=valeurPrix,Path=Value}" ContentStringFormat=" {0:C}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <Label Content="Couleur de fond : "></Label>
+                <TextBox Text="{Binding Produit.CouleurFond}" Margin="60,0,0,0"/>
+            </StackPanel>
+            <StackPanel Background="Gold">
+                <Button Height="70" Width="200" Margin="0,20,0,20" Content="Afficher la fenetre" Command="{Binding OpenCommand}"></Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel></StackPanel>
+    </Grid>
+</Window>
